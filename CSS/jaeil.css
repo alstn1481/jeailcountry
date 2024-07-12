@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {color: #4f4e49;} /*#666666을 줄이면 #666이다. #666566이면 줄일 수 없다.*/
+a {display: block; color: #4f4e49; text-decoration: none;}
+img {display: block; max-width: 100%;}
+
+#layout {width: 1100px; height: 1200px; margin: auto;} /*id가 layout인 곳에 적용*/
+
+/*상단*/
+header {height: 200px; display: flex; align-items: flex-start; padding-top: 50px; position: relative; z-index: 1;}
+#logo {margin-right: 150px;}
+header ul {flex: 1; list-style: none; display: flex; text-align: center; padding-top: 15px;} /*circle은 서클렌즈모양, disc은 동그라미모양, square은 네모모양*/
+header li {flex: 1;}
+
+/*메뉴호버*/
+header li .subMenu {transition: 0.5s;}
+header li:hover .mainMenu {background: #4f4e49; color: white;}
+header ul:hover .subMenu {height: 150px; padding: 10px 0;}
+header ul:hover~#menuBg {height: 150px;}
+
+/*메뉴배경*/
+#menuBg {background: rgb(255, 255, 255, 0.8); width: 100%; height: 0px; position: absolute; top: 100px; transition: 0.5s; z-index: -1;}
+
+/*메인메뉴*/
+.mainMenu {font-size: 1.2rem; font-weight: bold; padding: 4px 0 7px;}
+
+/*서브메뉴*/
+.subMenu {height: 0px; overflow: hidden;}
+.subMenu a:hover {background-color: #868070; color: white; font-weight: bold;}
+.subMenu a {padding: 3px 0 6px;}
+
+/*슬라이드*/
+header + section {height: 305px; overflow: hidden; position: relative;}
+h1 {position: absolute; top: 27%; left: 30%; 
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
+    z-index: 1; padding: 30px 100px; border-radius: 30px; 
+    animation: big 1.5s both infinite alternate; transform: scale(0);}
+#slide {
+    display: flex; position: relative; left: 0;
+    animation: go1 7s 1s infinite;
+    width: 3300px; overflow: hidden;
+}
+#slide img {width: 1100px; transform: translateY(0px);} /*이따 여기 지워보기*/
+
+@keyframes big {
+    to {transform: scale(1);}
+}
+@keyframes go1 {
+    0% {left: 0;}
+    25% {left: -1100px;}
+    50% {left: -2200px;}
+    75% {left: -1100px;}
+    100% {left: 0px;}
+}
+
+
+/*메인*/
+main {height: 500px; display: flex; padding-top: 50px; margin-bottom: -50px;}
+main h2 {margin-bottom: 20px; border-bottom: 2px solid #bbb;}
+
+/*공지사항*/
+#notice {flex: 1; margin-right: 70px;}
+#notice ul {/* list-style: none; */ line-height: 180%;}
+#notice li {margin-left: 20px;}
+#notice a {display: inline; letter-spacing: -1px;}
+#notice a:hover {color: yellowgreen; text-decoration: underline;}
+#notice span {float: right;}
+
+
+/*협력사*/
+#partner {flex: 0.9; margin-right: 70px;}
+#partner>a {width: 90%; margin: auto;}
+#partner>div {width: 90%; margin: auto; padding-top: 20px; display: flex; align-items: center;}
+#partner h3 {background: #bc9a6a; color: white; width: 130px; height: 130px; font-size: 1.1rem; letter-spacing: -1.5pt; border-radius: 50%; padding-top: 13%; text-align: center;}
+#partner ul {list-style-position: inside; letter-spacing: -2pt; line-height: 160%; padding-left: 15px;}
+#partner ul a {display: inline;}
+#partner ul a:hover {color: orange; border-bottom: 1px dashed #f0f;}
+
+
+/*배너*/
+#banner {flex: 0.65; padding-top: 30px;}
+#banner h2 {display: none;}
+#banner a {display: block; padding: 6px 15px; width: 250px; margin-bottom: 10px; transition: 0.5s;}
+#banner a:hover {filter: sepia(100%) blur(1px); transform: translateY(-5px);}
+
+
+
+
+/*하단*/
+footer {height: 150px; background-color: #ddd; padding: 20px;}
+footer ul {list-style: none; display: flex; line-height: 160%;}
+footer li:nth-of-type(1) {flex: 0.8}
+footer li:nth-of-type(2) {flex: 1}
+footer a {display: inline;}
